@@ -174,7 +174,7 @@ def calculate_match_score(keywords: dict, reqs: dict) -> int:
 
 
 def generate_boss_greeting(jd_text: str, job_title: str, company_name: str) -> str:
-    """生成Boss直聘打招呼话术"""
+    """生成B***打招呼话术"""
     tailored = tailor_resume_sections(jd_text)
     keywords_list = tailored["keywords_matched"]["hard_skills"][:4]
     kw_str = "、".join(keywords_list) if keywords_list else "品牌全案策划"

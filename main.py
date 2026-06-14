@@ -101,11 +101,11 @@ class JobHunter:
         self.running = False
 
     def _init_session(self) -> bool:
-        """初始化Boss直聘会话"""
+        """初始化B***会话"""
         cookie_path = BASE_DIR / "data" / "cookies.json"
         if not cookie_path.exists():
-            log("未找到Cookie文件！请在 data/cookies.json 中设置Boss直聘Cookie", "ERROR")
-            log("获取方法：浏览器登录zhipin.com → F12 → Application → Cookies → 复制所有cookie值", "INFO")
+            log("未找到Cookie文件！请在 data/cookies.json 中设置B***Cookie", "ERROR")
+            log("获取方法：浏览器登录招聘网站 → F12 → Application → Cookies → 复制所有cookie值", "INFO")
             return False
 
         with open(cookie_path, "r", encoding="utf-8") as f:
@@ -113,7 +113,7 @@ class JobHunter:
 
         self.session = BossZhipinSession(cookies)
         if self.session.is_authenticated():
-            log("Boss直聘登录成功 ✓")
+            log("B***登录成功 ✓")
             return True
         else:
             log("Cookie已过期！请重新从浏览器复制Cookie", "ERROR")
@@ -291,7 +291,7 @@ class JobHunter:
 
         if not self._init_session():
             log("无法初始化会话，请先配置Cookie后重新运行", "ERROR")
-            log("1. 浏览器打开 zhipin.com 并登录", "INFO")
+            log("1. 浏览器打开招聘网站并登录", "INFO")
             log("2. F12 → Application → Cookies → 复制所有cookie", "INFO")
             log("3. 运行: python -c \"from zhipin import save_cookies_from_browser; save_cookies_from_browser('你的cookie字符串')\"", "INFO")
             return
@@ -338,7 +338,7 @@ def print_usage():
 ==========================
 
 首次使用:
-  1. 浏览器打开 zhipin.com 并登录
+  1. 浏览器打开招聘网站并登录
   2. F12 → Application → Cookies → 复制所有cookie
   3. 运行: python main.py --set-cookie "你的cookie字符串"
 
@@ -367,7 +367,7 @@ def main():
     parser.add_argument("--interval", type=int, default=None, help="扫描间隔（秒）")
     parser.add_argument("--no-auto-apply", action="store_true", help="不自动投递")
     parser.add_argument("--no-auto-reply", action="store_true", help="不自动回复")
-    parser.add_argument("--set-cookie", type=str, default=None, help="设置Boss直聘Cookie")
+    parser.add_argument("--set-cookie", type=str, default=None, help="设置B***Cookie")
     parser.add_argument("--status", action="store_true", help="查看运行统计")
     parser.add_argument("--dry-run", action="store_true", help="试运行（不实际发送）")
 

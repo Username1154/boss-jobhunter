@@ -30,5 +30,5 @@
     {"scenario": "interview_invited", "questions": ["请问这个岗位的核心KPI或考核指标是怎样的？", "团队目前有多少人？这个岗位是新增还是补缺？"]}
   ],
 
-  "cookie_note": "从浏览器F12 → Application → Cookies → zhipin.com → 复制 __zp_stoken__ 等关键cookie"
+  "cookie_note": "从浏览器F12 → Application → Cookies → 招聘网站域名 → 复制关键cookie值"
 }

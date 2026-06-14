@@ -1,5 +1,5 @@
 """
-Boss直聘平台适配器 — 消息扫描、简历投递、HR聊天
+B***平台适配器 — 消息扫描、简历投递、HR聊天
 需要用户提供浏览器Cookie来维持会话
 """
 import json
@@ -60,7 +60,7 @@ ENDPOINTS = {
 # ============================================================
 
 class BossZhipinSession:
-    """Boss直聘会话管理"""
+    """B***会话管理"""
 
     def __init__(self, cookies_dict: dict = None):
         self.session = requests.Session()
@@ -502,5 +502,5 @@ if __name__ == "__main__":
         else:
             print("✗ 登录失败，请更新cookie")
     else:
-        print("请先在 data/cookies.json 中设置Boss直聘的cookie")
+        print("请先在 data/cookies.json 中设置B***的cookie")
         print("获取方法：F12 → Application → Cookies → 复制 __zp_stoken__, zp_token 等关键cookie")

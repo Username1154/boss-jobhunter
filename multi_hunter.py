@@ -1,5 +1,5 @@
 """
-全平台求职Agent — Boss直聘 + 猎聘 + 前程无忧
+全平台求职Agent — B*** + 猎* + 前***
 需要浏览器（Edge/Chrome），基于DrissionPage + Chrome CDP
 用法: python multi_hunter.py --city 深圳 --max-apply 20
 """
@@ -48,11 +48,11 @@ AI_HR_PATTERNS = [
     "请回复", "回复数字", "请选择", "请输入",
 ]
 
-# 猎聘/前程无忧 城市代码
+# 猎*/前*** 城市代码
 CITY_CODES_51JOB = {"深圳": "040000", "广州": "030200", "东莞": "030800", "杭州": "080200"}
 CITY_CODES_LIEPIN = {"深圳": "050090", "广州": "050020", "东莞": "050040", "杭州": "060020"}
 
-# 前程无忧当前有反爬问题(403)，暂时禁用
+# 前***当前有反爬问题(403)，暂时禁用
 ENABLE_51JOB = False
 
 
@@ -96,7 +96,7 @@ def launch_browser():
 
 
 # ============================================================
-# 猎聘操作
+# 猎*操作
 # ============================================================
 
 class LiepinHunter:
@@ -117,10 +117,10 @@ class LiepinHunter:
             json.dump({"ids": list(self.applied), "updated": datetime.now().isoformat()}, f)
 
     def search_jobs(self, keyword: str, city: str = "深圳", page: int = 1) -> list:
-        """搜索猎聘岗位"""
+        """搜索猎*岗位"""
         city_code = CITY_CODES_LIEPIN.get(city, "050090")
         url = f"https://www.liepin.com/zhaopin/?key={keyword}&dqs={city_code}&curPage={page}"
-        print(f"  [猎聘] 搜索: {keyword} @ {city}")
+        print(f"  [猎*] 搜索: {keyword} @ {city}")
 
         try:
             self.page.get(url)
@@ -168,7 +168,7 @@ class LiepinHunter:
                         "salary": j["salary"],
                         "city": j.get("location", city),
                         "link": j["link"],
-                        "platform": "猎聘",
+                        "platform": "猎*",
                     })
 
             print(f"    找到 {len(jobs)} 个新岗位")
@@ -191,7 +191,7 @@ class LiepinHunter:
             return job
 
     def apply(self, job: dict) -> bool:
-        """投递猎聘岗位"""
+        """投递猎*岗位"""
         if job["job_id"] in self.applied:
             return False
 
@@ -222,7 +222,7 @@ class LiepinHunter:
             return False
 
     def check_messages(self) -> list:
-        """检查猎聘消息"""
+        """检查猎*消息"""
         try:
             self.page.get("https://www.liepin.com/im/")
             time.sleep(3)
@@ -240,7 +240,7 @@ class LiepinHunter:
                         "sender": name,
                         "text": text,
                         "time": msg_time,
-                        "platform": "猎聘",
+                        "platform": "猎*",
                     })
                 except Exception:
                     continue
@@ -250,7 +250,7 @@ class LiepinHunter:
 
 
 # ============================================================
-# 前程无忧操作
+# 前***操作
 # ============================================================
 
 class Job51Hunter:
@@ -271,10 +271,10 @@ class Job51Hunter:
             json.dump({"ids": list(self.applied), "updated": datetime.now().isoformat()}, f)
 
     def search_jobs(self, keyword: str, city: str = "深圳", page: int = 1) -> list:
-        """搜索51job岗位"""
+        """搜索5****岗位"""
         city_code = CITY_CODES_51JOB.get(city, "040000")
         url = f"https://we.51job.com/pc/search?keyword={keyword}&city={city_code}&page={page}"
-        print(f"  [51job] 搜索: {keyword} @ {city}")
+        print(f"  [5****] 搜索: {keyword} @ {city}")
 
         try:
             self.page.get(url)
@@ -300,7 +300,7 @@ class Job51Hunter:
                             "salary": salary,
                             "city": city,
                             "link": link,
-                            "platform": "前程无忧",
+                            "platform": "前***",
                         })
                 except Exception:
                     continue
@@ -311,7 +311,7 @@ class Job51Hunter:
             return []
 
     def apply(self, job: dict) -> bool:
-        """投递51job岗位"""
+        """投递5****岗位"""
         if job["job_id"] in self.applied:
             return False
         try:
@@ -404,7 +404,7 @@ def handle_human_hr(text: str, company: str, job: str) -> str:
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="全平台求职Agent — 猎聘 + 前程无忧 + Boss直聘聊天")
+    parser = argparse.ArgumentParser(description="全平台求职Agent — 猎* + 前*** + B***聊天")
     parser.add_argument("--once", action="store_true", help="只跑一轮")
     parser.add_argument("--direction", type=int, default=0, help="求职方向: 0=全部 1/2/3=第N个方向")
     parser.add_argument("--city", type=str, default="深圳", help="首选城市")
@@ -415,7 +415,7 @@ def main():
 
     print("=" * 60)
     print("  全平台求职Agent启动")
-    print(f"  支持平台: 猎聘 + 前程无忧 + Boss直聘(聊天)")
+    print(f"  支持平台: 猎* + 前*** + B***(聊天)")
     print("=" * 60)
 
     if not launch_browser():
@@ -448,7 +448,7 @@ def main():
                     print(f"\n已达到投递上限({args.max_apply})，停止搜索")
                     break
 
-                # 猎聘搜索+投递
+                # 猎*搜索+投递
                 if not args.chat_only:
                     jobs = liepin.search_jobs(keyword, city)
                     for job in jobs:
@@ -468,7 +468,7 @@ def main():
                             if flags:
                                 print(f"  [跳过 {evaluation['score']}分] {job['company']}: {', '.join(flags[:2])}")
 
-                # 前程无忧（当前有反爬问题，已临时禁用）
+                # 前***（当前有反爬问题，已临时禁用）
                 if ENABLE_51JOB and not args.chat_only:
                     jobs = job51.search_jobs(keyword, city)
                     for job in jobs:
@@ -488,7 +488,7 @@ def main():
             if total_applied >= args.max_apply:
                 break
 
-    # 检查猎聘消息
+    # 检查猎*消息
     if not args.apply_only:
         print(f"\n{'='*60}")
         print("  检查新消息")
