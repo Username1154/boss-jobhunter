@@ -1,0 +1,34 @@
+{
+  "platform": "boss_zhipin",
+  "scan_interval_seconds": 600,
+  "max_daily_applications": 30,
+  "reply_delay_min": 5,
+  "reply_delay_max": 30,
+  "auto_apply": false,
+  "auto_reply": false,
+  "require_approval_for_salary_talk": true,
+
+  "job_preferences": {
+    "titles": ["品牌策划", "文案指导", "内容策略", "新媒体运营", "AI产品运营"],
+    "exclude_titles": ["实习", "助理", "初级", "应届"],
+    "min_salary": 8000,
+    "cities": ["深圳", "东莞"],
+    "industries": ["广告/公关/会展", "互联网", "快消品", "文化/传媒"],
+    "exclude_industries": ["保险", "直销", "金融理财"],
+    "company_size_min": 20
+  },
+
+  "red_flags": {
+    "keywords": ["无责底薪", "地推", "陌拜", "电话销售", "试用期免费", "培训收费", "押金", "保证金"],
+    "company_name_patterns": ["XX代理", "XX外包", "XX派遣"],
+    "salary_structure_issues": ["纯提成", "无底薪"]
+  },
+
+  "auto_questions_for_hr": [
+    {"scenario": "first_contact", "questions": ["请问贵司的上班时间是？双休还是单休？"]},
+    {"scenario": "salary_mentioned", "questions": ["方便了解一下薪资结构吗？基础薪资+绩效的比例是怎样的？", "五险一金是按什么基数缴纳的？"]},
+    {"scenario": "interview_invited", "questions": ["请问这个岗位的核心KPI或考核指标是怎样的？", "团队目前有多少人？这个岗位是新增还是补缺？"]}
+  ],
+
+  "cookie_note": "从浏览器F12 → Application → Cookies → zhipin.com → 复制 __zp_stoken__ 等关键cookie"
+}

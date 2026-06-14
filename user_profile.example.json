@@ -1,0 +1,82 @@
+{
+  "_说明": "把这个文件复制为 user_profile.json，填入你自己的真实信息",
+  "_警告": "user_profile.json 包含个人隐私，已被 .gitignore 排除，不会上传到 Git",
+
+  "name": "张三",
+  "gender": "男",
+  "age": 28,
+  "location": "深圳",
+  "education": "本科",
+  "school": "XX大学",
+  "major": "XX专业",
+  "experience_years": 5,
+  "expected_city": "深圳",
+  "expected_salary": "10K-15K",
+  "expected_role": ["品牌策划", "内容运营", "AI产品运营"],
+
+  "personal_links": {
+    "zhihu": "https://www.zhihu.com/people/你的知乎ID",
+    "zhihu_name": "你的知乎昵称",
+    "zhihu_stats": "XX万+阅读，XXX+赞同",
+    "portfolio": "https://你的作品集网站",
+    "douyin": "你的抖音号"
+  },
+
+  "client_brands": ["品牌A", "品牌B", "品牌C", "品牌D"],
+  "career_highlights": [
+    "主导XX项目，全网播放量100万+",
+    "从0-1搭建XX体系，效率提升50%",
+    "服务XX行业多个品牌，完成XX营销目标"
+  ],
+
+  "work_history": [
+    {
+      "company": "XX科技有限公司",
+      "role": "创意指导",
+      "period": "2024.03-2026.03",
+      "responsibilities": "统筹项目组全流程，制定创意策略标准",
+      "highlights": [
+        "主导XX项目，全网播放量100万+",
+        "从0-1搭建XX工作流",
+        "客户满意度从80%提升至95%"
+      ]
+    },
+    {
+      "company": "XX广告有限公司",
+      "role": "资深策划",
+      "period": "2021.03-2023.10",
+      "responsibilities": "负责品牌全案策划",
+      "highlights": [
+        "策划XX整合营销，话题曝光500万+",
+        "建立品牌标准化内容库，复用至3个项目",
+        "服务多行业品牌"
+      ]
+    },
+    {
+      "company": "XX传媒有限公司",
+      "role": "内容策划",
+      "period": "2019.03-2021.02",
+      "responsibilities": "电商平台内容营销方案策划",
+      "highlights": [
+        "策划直播脚本方案，场均观看3万+",
+        "撰写的策划案成功为公司接下年度合作订单"
+      ]
+    }
+  ],
+
+  "skills": [
+    "品牌全案策划",
+    "内容策略与架构设计",
+    "AI工具应用（ChatGPT/Claude/Midjourney等）",
+    "AI工作流搭建",
+    "TVC/短视频脚本创意",
+    "整合营销传播",
+    "SEO/内容优化"
+  ],
+
+  "self_media": {
+    "zhihu": "XX万+阅读，XXX+赞同，XXX+粉丝",
+    "wechat": "公众号「XXX」原创XX篇",
+    "portfolio": "个人作品站URL"
+  }
+}
